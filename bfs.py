@@ -2,11 +2,10 @@
 
 from graph import setupRandomGraph
 
-graph = setupRandomGraph()
+graph = {1:[2,5], 2:[3,4], 3:[5], 4:[5], 5:[]}
 print(graph)
-print(list(graph.keys()))
-visited = len(list(graph.keys())) * [False]
-print(visited)
+
+visited = []
 queue = []
 
 queue.append(1)
@@ -15,9 +14,8 @@ while queue:
     n = queue.pop(0)
     print(n)
 
-    for i in graph[n]:
-        print("i:", i)
-        if visited[n] == False:
-            queue.append(i)
-            visited[n] = True
+    for values in graph[n]:
+        if values not in visited:
+            queue.append(values)
+            visited.append(values)
     
