@@ -1,11 +1,7 @@
 import random
 
-graph = {}
-
-
-
 def setupRandomGraph():
-
+    graph = {}
     def getNumNodes():
         while True:
             try:
@@ -36,9 +32,7 @@ def setupRandomGraph():
                 if addme not in graph[i]:
                     graph[i].append(addme)
     
-            
-setupRandomGraph()
-print(graph)
+    return graph
 
 
 
