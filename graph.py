@@ -2,26 +2,27 @@ import random
 
 graph = {}
 
-def getNumNodes():
-    while True:
-        try:
-            numNodes = int(input("How many nodes? "))
-            while numNodes > 30:
-                print("Too many nodes!")
-                numNodes = getNumNodes()
-            while numNodes < 0:
-                print("Negative nodes? What universe do you live in!?")
-                numNodes = getNumNodes()
-        except ValueError:
-            print("Please enter an integer")
-            continue
-        else:
-            return numNodes
 
 
-numNodes = getNumNodes()
+def setupRandomGraph():
 
-def setupRandomGraph(numNodes):
+    def getNumNodes():
+        while True:
+            try:
+                numNodes = int(input("How many nodes? "))
+                while numNodes > 30:
+                    print("Too many nodes!")
+                    numNodes = getNumNodes()
+                while numNodes < 0:
+                    print("Negative nodes? What universe do you live in!?")
+                    numNodes = getNumNodes()
+            except ValueError:
+                print("Please enter an integer")
+                continue
+            else:
+                return numNodes
+    numNodes = getNumNodes()
+
     for i in range(1,numNodes+1):
         graph[i] = []
         if i < numNodes - 3:
@@ -36,8 +37,7 @@ def setupRandomGraph(numNodes):
                     graph[i].append(addme)
     
             
-
-setupRandomGraph(numNodes)
+setupRandomGraph()
 print(graph)
 
 
