@@ -6,7 +6,7 @@ def setupRandomGraph():
         while True:
             try:
                 numNodes = int(input("How many nodes? "))
-                while numNodes > 30:
+                while numNodes > 15:
                     print("Too many nodes!")
                     numNodes = getNumNodes()
                 while numNodes < 0:
@@ -19,7 +19,36 @@ def setupRandomGraph():
                 return numNodes
     numNodes = getNumNodes()
 
-    for i in range(1,numNodes+1):
+    visited = []
+    nodes = [i for i in range(1, numNodes+1)]
+    print(nodes)
+
+    for i in range(1, numNodes+1):
+        graph[i] = []
+
+    #create random walk
+    curr = 1
+    while (len(nodes) > 1):
+        nodes.remove(curr)
+        e = random.choice(nodes)
+        graph[curr].append(e)
+        curr = e
+        print(nodes)
+        print(graph)
+
+    #add random edges
+    for i in range(numNodes-1):
+        top = random.randint(1,numNodes)
+        bottom = random.randint(1,numNodes)
+        if top != bottom:
+            if bottom not in graph[top]:
+                graph[top].append(bottom)
+        print(graph)
+
+
+        
+
+    """ for i in range(1,numNodes+1):
         graph[i] = []
         if i < numNodes - 3:
             for j in range(random.randint(2,5)):
@@ -30,9 +59,11 @@ def setupRandomGraph():
             for j in range(random.randint(0,3)):
                 addme = i + random.randint(1,3)
                 if addme not in graph[i]:
-                    graph[i].append(addme)
+                    graph[i].append(addme) """
+
+        
     
     return graph
 
-
+print(setupRandomGraph())
 
