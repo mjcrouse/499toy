@@ -2,10 +2,6 @@
 
 from graph import setupRandomGraph
 
-graph = {1:[2,5], 2:[3,4], 3:[5], 4:[5], 5:[]}
-print(graph)
-
-
 def bfs(v):
     visited = []
     queue = []
@@ -25,8 +21,15 @@ def bfs(v):
 
     return result
 
+graph = {1:[2,5], 2:[3,4], 3:[5], 4:[5], 5:[]}
+print(graph)
 print(bfs(1))
 assert bfs(1) == [1, 2, 5, 3, 4], "Not equal"
+
+graph = {1: [2], 2: [3,5,4], 3: [5,7], 4: [6,7], 5: [8], 6: [], 7: [], 8: []}
+print(graph)
+print(bfs(1))
+assert(bfs(1)) == [1, 2, 3, 5, 4, 7, 8, 6], "Not equal"
 
 graph = setupRandomGraph()
 print(graph)
