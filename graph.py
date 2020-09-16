@@ -21,7 +21,6 @@ def setupRandomGraph():
 
     visited = []
     nodes = [i for i in range(1, numNodes+1)]
-    print(nodes)
 
     for i in range(1, numNodes+1):
         graph[i] = []
@@ -33,8 +32,6 @@ def setupRandomGraph():
         e = random.choice(nodes)
         graph[curr].append(e)
         curr = e
-        print(nodes)
-        print(graph)
 
     #add random edges
     for i in range(numNodes-1):
@@ -43,7 +40,6 @@ def setupRandomGraph():
         if top != bottom:
             if bottom not in graph[top]:
                 graph[top].append(bottom)
-        print(graph)
 
 
         
@@ -64,6 +60,4 @@ def setupRandomGraph():
         
     
     return graph
-
-print(setupRandomGraph())
 
