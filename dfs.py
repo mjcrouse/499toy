@@ -1,12 +1,16 @@
 #Depth-First-Search
-graph = {1:[2,5], 2:[3,4], 3:[5], 4:[5], 5:[]}
+
+from graph import setupRandomGraph
+import unittest
+
+graph = setupRandomGraph()
 print(graph)
 
 visited = []
 
 def dfs(v):
     visited.append(v)
-    print(v)
+    print(v, end=" ")
 
     for values in graph[v]:
         if values not in visited:
